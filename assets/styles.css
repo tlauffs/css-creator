@@ -1,0 +1,326 @@
+/* css reset */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  font-family: "Open Sans", sans-serif;
+}
+
+html,
+body,
+#__nuxt {
+  height: 100%;
+}
+
+body {
+  background-color: var(--back-color);
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+span,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+  color: var(--secondary-color);
+}
+
+p,span {
+  font-size: 0.875rem;
+}
+
+h3 {
+  font-size: 1rem;
+}
+
+
+:root {
+  --primary-color: #482673;
+  --secondary-color: #023b59;
+  --link-color: #ed0b70;
+  --link-color-rgb: 237, 11, 112;
+  --highlight-color: #4cbfa6;
+  --highlight-color-rgb: 76, 191, 166;
+  --back-color: #f6ebf4;
+}
+
+/* helper styles */
+
+.primary-color {
+  color: var(--primary-color);
+}
+
+.secondary-color {
+  color: var(--secondary-color);
+}
+
+.link-color {
+  color: var(--link-color);
+}
+
+.highlight-color {
+  color: var(--highlight-color);
+}
+
+.back-color {
+  color: var(--back-color);
+}
+
+.m1 {
+  margin: 1rem;
+}
+
+.m1-tb {
+  margin: 1rem 0;
+}
+
+.m1-lr {
+  margin: 0 1rem;
+}
+
+.m1-b {
+  margin-bottom: 1rem;
+}
+
+.m1-t {
+  margin-top: 1rem;
+}
+
+.m1-r {
+  margin-right: 1rem;
+}
+
+.m1-l {
+  margin-left: 1rem;
+}
+
+.h100 {
+  height: 100%;
+}
+
+.w100 {
+  width: 100%;
+}
+
+/* layout styles */
+
+.body-wrapper {
+  height: 100%;
+}
+
+.flex-middle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-grow {
+  flex-grow: 1;
+}
+
+.input-flex {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.flex-vertical {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-horizontal {
+  display: flex;
+  height: 100%;
+}
+
+/* menu styles */
+
+.menu-wrapper {
+  background-color: white;
+  min-width: min(14rem, 100%);
+  height: 100%;
+  -webkit-box-shadow: 3px 1px 7px 4px rgba(0, 0, 0, 0.35);
+  box-shadow: 3px 1px 7px 4px rgba(0, 0, 0, 0.35);
+  clip-path: inset(0px -15px 0px 0px);
+  padding: 2rem 1.2rem;
+}
+
+.menu-title {
+  margin: 0.5rem 0;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 2rem;
+  /*   border-bottom: 1px solid rgba(2, 59, 89, 0.5); */
+  padding: 0 0.3rem 0 1rem;
+}
+
+.menu-icon {
+  font-size: 1.5rem;
+}
+
+/* button styles */
+
+.btn-link{
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  transition: all 200ms ease-in;
+  border-radius: 0.4rem;
+}
+
+.btn-link:hover {
+  background-color: rgba(var(--highlight-color-rgb), 0.5);
+}
+
+/* slider style */
+
+.range-slider{
+  -webkit-appearance: none;  /* Override default CSS styles */
+  appearance: none;
+  border-radius: 1rem;
+  outline: 1px solid var(--secondary-color);
+  opacity: 0.8; /* Set transparency (for mouse-over effects on hover) */
+  -webkit-transition: .2s; /* 0.2 seconds transition on hover */
+  transition: opacity .2s;
+}
+
+.range-slider:hover {
+  opacity: 1; 
+}
+
+.range-slider::-webkit-slider-thumb {
+  -webkit-appearance: none; /* Override default look */
+  appearance: none;
+  width: 0.8rem; /* Set a specific slider handle width */
+  height: 0.8rem; /* Slider handle height */
+  background: var(--secondary-color); /* Green background */
+  border-radius: 50%;
+  cursor: pointer; /* Cursor on hover */
+}
+
+.range-slider::-moz-range-thumb {
+  width: 0.8rem; /* Set a specific slider handle width */
+  height: 0.8rem; /* Slider handle height */
+  cursor: pointer; /* Cursor on hover */
+  background: var(--secondary-color); /* Green background */
+  border-radius: 50%;
+}
+
+/* radio styles */
+
+input[type="radio"] {
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: #fff;
+  margin: 0;
+  font: inherit;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid var(--secondary-color);
+  border-radius: 50%;
+  transform: translateY(0.1rem);
+}
+
+input[type="radio"]::before {
+  content: "";
+  position: absolute;
+  top:-2px;
+  left:-2px;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  transform: scale(0);
+  transition: 120ms transform ease-in-out;
+  box-shadow: inset 1em 1em var(--link-color);
+}
+
+
+input[type="radio"]:checked::before {
+  transform: scale(1);
+    /* Windows High Contrast Mode */
+    background-color: var(--link-color);
+}
+
+/* switch style */
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 2.6rem;
+  height: 1.6rem;
+}
+
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--secondary-color);
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 1.4rem;
+  width: 1.4rem;
+  left: 0.1rem;
+  bottom: 0.1rem;
+  background-color: white;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: var(--highlight-color);
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px var(--highlight-color);
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(1rem);
+  -ms-transform: translateX(1rem);
+  transform: translateX(1rem);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 2rem;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
