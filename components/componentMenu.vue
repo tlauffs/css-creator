@@ -1,6 +1,29 @@
 <script setup>
-import ButtonComp from './tabs/button.vue';
-const tab = ref(resolveComponent('tabsDefault'));
+const tabDefault = shallowRef(resolveComponent('tabsDefault'));
+const ColorComp = shallowRef(resolveComponent('tabsColor'));
+const ButtonComp = shallowRef(resolveComponent('tabsButton'));
+const tab = tabDefault;
+
+const styleList = reactive({});
+
+function addStyles(key, name, value) {
+    if (name === '' || !(/^[a-zA-Z0-9-]+$/.test(name))) {
+        alert('pls enter a valid name');
+        return;
+    }
+
+    if (key === 'colors') {
+        if(!(name.startsWith("--"))){
+            alert("Color name must start with '--'")
+            return;
+        }
+    }
+
+    if (!(Object.hasOwn(styleList, key))) {
+        styleList[key] = new Map();
+    }
+    styleList[key].set(name, value)
+}
 
 </script>
 <template>
@@ -18,7 +41,7 @@ const tab = ref(resolveComponent('tabsDefault'));
                     chevron_right
                 </span>
             </button>
-            <button @click="tab = 'colors'" class="menu-item btn-link">
+            <button @click="tab = ColorComp" class="menu-item btn-link">
                 <p>Colors
                 </p>
                 <span class="material-symbols-outlined menu-icon">
@@ -53,9 +76,10 @@ const tab = ref(resolveComponent('tabsDefault'));
             </button>
         </div>
         <div class="flex-grow">
-            <component class="h100" :is="tab" />
+            <component :is="tab" @my-add-styles-event="addStyles" :styleListProp='styleList' />
         </div>
     </div>
 </template>
 <style>
+
 </style>

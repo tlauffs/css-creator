@@ -1,24 +1,11 @@
 <script setup>
 
-const counter = useState('counter', () => 100);
-const roundedBtnRange = ref(0);
-const colorBtnInput = ref('#023b59');
-const textColorBtnInput = ref('#f6ebf4');
 const snippitExpand = ref({ open: false, show: 'Show', chevron: 'less' });
 const buttonNameInput = ref('');
 
 const buttonList = reactive({});
 const selectdBtn = ref('');
 
-
-const primaryButton = reactive({
-    backgroundColor: colorBtnInput,
-    color: textColorBtnInput,
-    border: 'none',
-    padding: '0.75rem 1rem',
-    cursor: 'pointer',
-    borderRadius: '0.5rem'
-})
 
 function camelToKebab(input) {
     return input.replace(/([a-z])([A-Z])/g, '$1-$2').toLowerCase();
@@ -153,8 +140,7 @@ function updateBorder(e) {
                         </span></p>
                 </button>
 
-                <p class="link-color">.{{ selectdBtn }}</p>
-                <p>{</p>
+                <p>.<span class="link-color">{{ selectdBtn }}</span> {</p>
                 <div v-for="(value, key) in buttonList[kebabToCamel(selectdBtn)]">
                     <span class="m1-l"><span class="primary-color">{{ camelToKebab(key) }}</span>: <span
                             class="secondary-color">{{

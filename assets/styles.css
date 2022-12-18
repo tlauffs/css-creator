@@ -105,6 +105,10 @@ h3 {
   margin-right: 1rem;
 }
 
+.m1-rs {
+  margin-right: 0.5rem;
+}
+
 .m1-l {
   margin-left: 1rem;
 }
@@ -131,6 +135,10 @@ h3 {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.gap{
+  gap: 1rem;
 }
 
 .flex-grow {
@@ -190,15 +198,18 @@ h3 {
 
 .btn-primary {
   border: none;
-  background-color: var(--highlight-color);
+  background-color: var(--primary-color);
   cursor: pointer;
   padding: 0.75rem 1rem;
   border-radius: 0.4rem;
-  font-weight: bold;
+}
+
+.btn-primary > p {
+  color: var(--back-color);
 }
 
 .btn-primary:hover {
-  filter: brightness(110%);
+  filter: brightness(120%);
 }
 
 .btn-link{
@@ -213,12 +224,52 @@ h3 {
   background-color: rgba(var(--highlight-color-rgb), 0.5);
 }
 
+.btn-white{
+  padding: 0.5rem 0.7rem;
+  border-radius: 0.4rem;
+  background-color: var(--back-color);
+  border: 1px var(--secondary-color) solid;
+  cursor: pointer;
+  transition: all 200ms ease-in-out;
+}
+
+.btn-white:hover {
+  filter: brightness(80%);
+}
+
+/* tooltip styles */
+
+.tooltip-text {
+  visibility: hidden;
+  position: absolute;
+  z-index: 1;
+  width: min(20rem, 80vw);
+  background-color: var(--back-color);
+  border: 1px var(--secondary-color) solid;
+  border-radius: 0.4rem;
+  padding: 0.5rem 0.7rem;
+}
+
+.hover-text:hover .tooltip-text {
+  visibility: visible;
+}
+
+#bottom {
+  top: 1.8rem;
+  left: -50%;
+}
+
+.hover-text {
+  position: relative;
+  display: inline-block;
+}
+
 /* input styles */
 
 .text-input {
   border: 1px var(--secondary-color) solid;
   padding: 0.3rem 0.5rem;
-  border-radius: 0.4rem;
+  border-radius: 0.2rem;
 }
 
 /* select styles */
