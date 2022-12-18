@@ -125,6 +125,10 @@ h3 {
   font-size: 0.6875rem;
 }
 
+.border-bottom  {
+  border-bottom: 1px black solid;
+}
+
 /* layout styles */
 
 .body-wrapper {
